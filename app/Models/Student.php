@@ -12,31 +12,34 @@ class Student extends Model
     protected $primaryKey = 'student_id';
 
     protected $fillable = [
+        'student_id',
         'first_name',
+        'middle_name',
         'last_name',
         'date_of_birth',
         'gender',
-        'national_id',
-        'profile_picture',
+        'nationality',
+        'id_passport',
         'email',
-        'phone_number',
+        'phone',
+        'alt_phone',
         'address',
-        'guardian_name',
-        'guardian_phone',
-        'guardian_email',
-        'school_name',
-        'grade_level',
-        'subjects',
-        'preferred_mode',
+        'city',
+        'country',
+        'username',
         'password',
-        'student_number',
-        'notes',
-        'status'
+    ];
+
+    protected $hidden = [
+        'password',
     ];
 
     protected $casts = [
-        'subjects' => 'array',
         'date_of_birth' => 'date',
-        'registration_date' => 'datetime',
     ];
+
+    public function registration()
+    {
+        return $this->hasOne(StudentRegistration::class, 'student_id');
+    }
 }

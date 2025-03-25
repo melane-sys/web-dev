@@ -13,32 +13,22 @@ return new class extends Migration
     {
         Schema::create('student_registrations', function (Blueprint $table) {
             $table->id();
-            // Personal Information
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->date('date_of_birth');
-            $table->string('gender');
-            
-            // Contact Information
-            $table->string('email')->unique();
-            $table->string('phone');
-            $table->text('address');
-            
-            // Academic Information
-            $table->integer('grade');
-            $table->json('subjects')->nullable();
-            
-            // Payment Information
-            $table->decimal('amount', 10, 2);
-            $table->string('payment_method'); // 'stripe' or 'mtn_momo'
-            $table->string('payment_status')->default('pending'); // pending, completed, failed
-            $table->string('payment_id')->nullable(); // Payment reference from Stripe/MTN
-            $table->json('payment_details')->nullable(); // Additional payment details
-            
-            // Registration Status
-            $table->string('status')->default('incomplete'); // incomplete, completed
-            $table->integer('current_step')->default(1); // Track multi-step form progress
-            
+            $table->foreignId('student_id')->constrained('students')->onDelete('cascade');
+            $table->string('guardian_name');
+            $table->string('guardian_relationship');
+            $table->string('guardian_phone');
+            $table->string('guardian_email');
+            $table->string('current_school')->nullable();
+            $table->string('grade_level');
+            $table->text('preferred_subjects');
+            $table->enum('learning_mode', ['live', 'recorded', 'both']);
+            $table->enum('payment_method', ['mtn', 'bank', 'paypal', 'other']);
+            $table->text('billing_address')->nullable();
+            $table->enum('referral_source', ['social', 'referral', 'website', 'other']);
+            $table->text('special_needs')->nullable();
+            $table->boolean('communication_consent')->default(false);
+            $table->enum('registration_status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->timestamp('registration_date')->useCurrent();
             $table->timestamps();
             $table->softDeletes();
         });

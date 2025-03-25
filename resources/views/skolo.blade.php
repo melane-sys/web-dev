@@ -66,7 +66,26 @@
             </div>
         </div>
     </div>
-
+    <!-- Skolo  Promotion Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4" style="color: #1c4c7c;">Skoloi for Students – Learn, Grow, Succeed!</h2>
+                    <p class="lead mb-4" style="color: #2a5a8a;">Access interactive courses, dedicated tutors, recorded lessons, and live classes—all tailored to help you excel. Join Skolo and take control of your academic success today!</p>
+                    <div class="d-flex gap-3 cta-buttons">
+                        <a href="{{ route('student.registration.form') }}" class="btn btn-warning text-white px-4 py-2 rounded-0 skolo-btn">Register Now!!</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative skolo-hero-image">
+                        <div class="bg-warning position-absolute" style="width: 100%; height: 100%; top: 15px; left: 15px; z-index: 1;"></div>
+                        <img src="{{ asset('images/img-hero-skoloi.jpg') }}" alt="Skoloi Platform" class="img-fluid position-relative shadow" style="z-index: 2;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Schools Section -->
     <div class="py-5">
         <div class="container">
@@ -111,7 +130,26 @@
             </div>
         </div>
     </div>
-
+    <!-- Skolo Institute Promotion Section -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="position-relative skolo-hero-image">
+                        <div class="bg-warning position-absolute" style="width: 100%; height: 100%; top: 15px; left: 15px; z-index: 1;"></div>
+                        <img src="{{ asset('images/img-hero-skoloi.jpg') }}" alt="Skoloi Platform" class="img-fluid position-relative shadow" style="z-index: 2;">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4" style="color: #1c4c7c;">Transform Education with Skoloi</h2>
+                    <p class="lead mb-4" style="color: #2a5a8a;">Empower your educational institution with our advanced Learning Management System. Skoloi provides everything you need for modern, effective learning.</p>
+                    <div class="d-flex gap-3 cta-buttons">
+                        <a href="{{ route('student.registration.form') }}" class="btn btn-warning text-white px-4 py-2 rounded-0 skolo-btn">Register Now!!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- CTA section -->
     <div class="py-5">
         <div class="container">

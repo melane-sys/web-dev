@@ -11,49 +11,35 @@ class StudentRegistration extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'date_of_birth',
-        'gender',
-        'email',
-        'phone',
-        'address',
-        'grade',
-        'subjects',
-        'amount',
+        'student_id',
+        'guardian_name',
+        'guardian_relationship',
+        'guardian_phone',
+        'guardian_email',
+        'current_school',
+        'grade_level',
+        'preferred_subjects',
+        'learning_mode',
         'payment_method',
-        'payment_status',
-        'payment_id',
-        'payment_details',
-        'status',
-        'current_step'
+        'billing_address',
+        'referral_source',
+        'special_needs',
+        'communication_consent',
+        'registration_status',
+        'registration_date'
     ];
 
     protected $casts = [
-        'subjects' => 'array',
-        'payment_details' => 'array',
-        'date_of_birth' => 'date',
-        'amount' => 'decimal:2'
+        'registration_date' => 'datetime',
+        'communication_consent' => 'boolean',
     ];
 
     protected $attributes = [
-        'payment_status' => 'pending',
-        'status' => 'incomplete',
-        'current_step' => 1
+        'registration_status' => 'pending'
     ];
 
-    public function getFullNameAttribute()
+    public function student()
     {
-        return "{$this->first_name} {$this->last_name}";
-    }
-
-    public function isPaymentCompleted()
-    {
-        return $this->payment_status === 'completed';
-    }
-
-    public function isRegistrationCompleted()
-    {
-        return $this->status === 'completed';
+        return $this->belongsTo(Student::class, 'student_id');
     }
 }
