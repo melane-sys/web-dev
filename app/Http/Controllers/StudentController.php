@@ -48,15 +48,15 @@ class StudentController extends Controller
             // Account Information
             'password' => 'required|string|min:8|confirmed',
             'termsAgreement' => 'required|accepted',
-            'communicationConsent' => 'nullable|boolean'
+            'communicationConsent' => 'nullable|string'
         ]);
 
         try {
             $student = new Student();
-            
+
             // Generate student ID with timestamp only (format: 20250325042816 for March 25, 2025 04:28:16)
             $student->student_id = Carbon::now()->format('YmdHis');
-            
+
             // Personal Information
             $student->first_name = $request->firstName;
             $student->middle_name = $request->middleName;
@@ -65,7 +65,7 @@ class StudentController extends Controller
             $student->gender = $request->gender;
             $student->nationality = $request->nationality;
             $student->id_passport = $request->idPassport;
-            
+
             // Contact Information
             $student->email = $request->email;
             $student->phone_number = $request->phoneNumber;
@@ -73,23 +73,23 @@ class StudentController extends Controller
             $student->address = $request->address;
             $student->city = $request->city;
             $student->country = $request->country;
-            
+
             // Guardian Information
             $student->guardian_name = $request->guardianName;
             $student->guardian_relation = $request->guardianRelation;
             $student->guardian_phone = $request->guardianPhone;
             $student->guardian_email = $request->guardianEmail;
-            
+
             // Academic Information
             $student->previous_school = $request->previousSchool;
             $student->grade_level = $request->gradeLevel;
             $student->academic_year = $request->academicYear;
             $student->subjects = $request->subjects;
-            
+
             // Account Information
             $student->password = bcrypt($request->password);
             $student->communication_consent = $request->has('communicationConsent');
-            
+
             $student->save();
 
             return redirect()->route('registration.success')->with('studentId', $student->student_id);
@@ -105,4 +105,9 @@ class StudentController extends Controller
         }
         return view('auth.registration-success');
     }
+    public function payments()
+    {
+
+    }
+
 }

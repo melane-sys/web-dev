@@ -14,7 +14,7 @@ class StudentRegistrationController extends Controller
         $request->validate([
             'firstName' => 'required|string|max:255',
             'lastName' => 'required|string|max:255',
-            'dateOfBirth' => 'required|date',
+            'dateOfBirth' => ['required','date','before:today'],
             'gender' => 'required|in:male,female,other',
             'nationality' => 'required|string|max:255',
             'idPassport' => 'required|string|max:255',
@@ -73,7 +73,7 @@ class StudentRegistrationController extends Controller
             'billing_address' => $request->billingAddress,
             'referral_source' => $request->referralSource,
             'special_needs' => $request->specialNeeds,
-            'communication_consent' => $request->has('communicationConsent'),
+            'communication_consent' => $request->communicationConsent,
             'registration_status' => 'pending',
             'registration_date' => now(),
         ]);

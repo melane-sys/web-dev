@@ -31,7 +31,7 @@ class StudentRegistration extends Model
 
     protected $casts = [
         'registration_date' => 'datetime',
-        'communication_consent' => 'boolean',
+       // 'communication_consent' => 'boolean',
     ];
 
     protected $attributes = [

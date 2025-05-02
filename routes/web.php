@@ -55,6 +55,7 @@ Route::get('/signup', function () {
 Route::get('/student/register', [StudentController::class, 'showRegistrationForm'])->name('student.register');
 Route::post('/student/register', [StudentController::class, 'register'])->name('student.register.submit');
 Route::get('/student/registration-success', [StudentController::class, 'showRegistrationSuccess'])->name('registration.success');
+Route::get('/student/checkout',[StudentController::class,'payments']);
 
 Route::get('/vacancies', function () {
     return view('vacancies');

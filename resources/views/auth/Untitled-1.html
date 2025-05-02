@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Hide elements with the 'hidden' class */
+        .hidden {
+            display: none;
+        }
+
+        /* Style for information containers */
+        .info-container {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+
+        /* Spacing for checkbox groups */
+        .checkbox-group {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Container Group 1 -->
+    <div class="checkbox-group">
+        <label>
+            <!--
+            Checkbox attributes:
+            - class: For JavaScript selection
+            - data-target: Associates checkbox with container (matches ID)
+            -->
+            <input type="checkbox" class="toggle-checkbox" data-target="info1">
+            Show Info 1
+        </label>
+        <!--
+        Information Container 1
+        - id matches checkbox's data-target
+        - starts hidden by default
+        -->
+        <div id="info1" class="info-container hidden">
+            <h3>Primary Level Subjects*</h3>
+            <div class="container">
+                <ul class="ks-cboxtags">
+                    <div class="subject-card bg-white border border-gray-200 rounded-lg p-4 cursor-pointer transition-all duration-300" onclick="toggleSubject(this, 'Mathematics')">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-square-root-alt text-indigo-600"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg">Mathematics</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">Explore algebra, calculus, and advanced mathematical concepts.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-600">E150</span>
+                            <div class="quantity-control hidden">
+                                <button class="quantity-btn w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center" onclick="event.stopPropagation(); adjustQuantity('Mathematics', -1)">-</button>
+                                <span class="mx-2 quantity" id="Mathematics-qty">0</span>
+                                <button class="quantity-btn w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center" onclick="event.stopPropagation(); adjustQuantity('Mathematics', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="subject-card bg-white border border-gray-200 rounded-lg p-4 cursor-pointer transition-all duration-300" onclick="toggleSubject(this, 'Physics')">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center mr-3">
+                                <i class="fas fa-atom text-indigo-600"></i>
+                            </div>
+                            <h3 class="font-semibold text-lg">Physics</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">Study matter, energy, and the fundamental forces of nature.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-indigo-600">E150</span>
+                            <div class="quantity-control hidden">
+                                <button class="quantity-btn w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center" onclick="event.stopPropagation(); adjustQuantity('Physics', -1)">-</button>
+                                <span class="mx-2 quantity" id="Physics-qty">0</span>
+                                <button class="quantity-btn w-6 h-6 rounded-full border border-gray-300 flex items-center justify-center" onclick="event.stopPropagation(); adjustQuantity('Physics', 1)">+</button>
+                            </div>
+                        </div>
+                    <
+                 </ul>
+              </div>
+        </div>
+    </div>
+
+    <!-- Container Group 2 -->
+    <div class="checkbox-group">
+        <label>
+            <input type="checkbox" class="toggle-checkbox" data-target="info2">
+            Show Info 2
+        </label>
+        <div id="info2" class="info-container hidden">
+            <h3>Junior Secondary (Form 3 / Junior Certificate) 2</h3>
+            <div class="container">
+                <ul class="ks-cboxtags">
+                  <li><input type="checkbox" id="bk" value="Bookkeeping and Accounts"><label for="bk">Bookkeeping and Accounts</label></li>
+                  <li><input type="checkbox" id="agrjc" value="Agriculture"><label for="agrjc">Agriculture</label></li>
+                  <li><input type="checkbox" id="bsjc" value="Business Studies"><label for="bsjc">Business Studies</label></li>
+                  <li><input type="checkbox" id="scijc" value="Science"><label for="scijc">Science</label></li>
+                  <li><input type="checkbox" id="sisjc" value="SiSwati"><label for="sisjc">SiSwati</label></li>
+                  <li><input type="checkbox" id="sosjc" value="Social Studies"><label for="sosjc">Social Studies</label></li>
+                  <li><input type="checkbox" id="engjc" value="English Language"><label for="engjc">English Language</label></li>
+                  <li><input type="checkbox" id="geojc" value="Geography"><label for="geojc">Geography</label></li>
+                  <li><input type="checkbox" id="hisjc" value="History"><label for="hisjc">History</label></li>
+                  <li><input type="checkbox" id="matjc" value="Mathematics"><label for="matjc">Mathematics</label></li>
+                  <li class="ks-selected"><input type="checkbox" id="addjc" value="Additional Mathematics"><label for="addjc">Additional Mathematics</label></li>
+                  <li><input type="checkbox" id="litjc" value="Baby Literature in English"><label for="litjc">Literature in English </label></li>
+                </ul>
+              </div>
+        </div>
+    </div>
+      <!-- Container Group 3 -->
+      <div class="checkbox-group">
+        <label>
+            <input type="checkbox" class="toggle-checkbox" data-target="info3">
+            Show Info 3
+        </label>
+        <div id="info3" class="info-container hidden">
+            <h3>Upper Secondary (Form 5 / Eswatini General Certificate of Secondary Education)</h3>
+            <div class="container">
+                <ul class="ks-cboxtags">
+
+                  <li><input type="checkbox" id="acc" value="Accounting"><label for="acc">Accounting</label></li>
+                  <li><input type="checkbox" id="bio" value="Biology"><label for="bio">Biology</label></li>
+                  <li><input type="checkbox" id="bssn" value="Business Studies"><label for="bsjc">Business Studies</label></li>
+                  <li><input type="checkbox" id="physn" value="Physical Science"><label for="physn">Physical Science</label></li>
+                  <li><input type="checkbox" id="sissn" value="SiSwati"><label for="sissn">SiSwati</label></li>
+                  <li><input type="checkbox" id="ecosn" value="Economics"><label for="ecosn">Economics</label></li>
+                  <li><input type="checkbox" id="engsn" value="English Language"><label for="engsn">English Language</label></li>
+                  <li><input type="checkbox" id="geosn" value="Geography"><label for="geosn">Geography</label></li>
+                  <li><input type="checkbox" id="hissn" value="History"><label for="hissn">History</label></li>
+                  <li><input type="checkbox" id="matsn" value="Mathematics"><label for="matjc">Mathematics</label></li>
+                  <li class="ks-selected"><input type="checkbox" id="addsn" value="Additional Mathematics"><label for="addsn">Additional Mathematics</label></li>
+                  <li><input type="checkbox" id="litsn" value="Baby Literature in English"><label for="litsn">Literature in English </label></li>
+                </ul>
+              </div>
+        </div>
+    </div>
+    <style>
+        .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .subject-card.selected {
+            border-color: #4f46e5;
+            background-color: #f5f3ff;
+        }
+        .checkout-summary {
+            transition: all 0.3s ease;
+        }
+        .quantity-btn {
+            transition: all 0.2s ease;
+        }
+        .quantity-btn:hover {
+            background-color: #e0e7ff;
+        }
+        #checkout-section {
+            display: none;
+        }
+    </style>
+    <script>
+        // JavaScript Execution Context
+        (function() {
+            /**
+             * Add event listeners to all checkboxes with class 'toggle-checkbox'
+             * This will work for existing and future elements with this class
+             */
+            document.querySelectorAll('.toggle-checkbox').forEach(checkbox => {
+                // Event listener for checkbox state changes
+                checkbox.addEventListener('change', function() {
+                    // Get target container ID from data attribute
+                    const targetId = this.dataset.target;
+
+                    // Find the corresponding info container
+                    const infoContainer = document.getElementById(targetId);
+
+                    // Safety check if container exists
+                    if (infoContainer) {
+                        /**
+                         * Toggle visibility:
+                         * - Add 'hidden' class when unchecked
+                         * - Remove 'hidden' class when checked
+                         * The second parameter converts checked state to boolean
+                         */
+                        infoContainer.classList.toggle('hidden', !this.checked);
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -113,8 +113,10 @@
         }
     </style>
 
-    <!-- Hero Section -->
-    <div class="text-white py-5" style="background: linear-gradient(135deg, #1c4c7c 0%, #2a5a8a 100%);">
+    <!-- Hero Section
+    style="background: linear-gradient(135deg, #1c4c7c 0%, #2a5a8a 100%);" -->
+    <div class="text-white py-5"
+    style="background: linear-gradient(135deg, #1c4c7c 0%, #004e8c 100%);">
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-6">
@@ -123,6 +125,7 @@
                     <div class="d-flex gap-3 cta-buttons">
                         <a href="{{ url('/contact') }}" class="btn btn-warning rounded-0 text-white px-4 py-2">Get Started</a>
                         <a href="{{ url('/about') }}" class="btn btn-outline-light rounded-0 px-4 py-2">Learn More</a>
+
                     </div>
                 </div>
                 <div class="col-lg-6">
